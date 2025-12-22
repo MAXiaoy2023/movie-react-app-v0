@@ -7,7 +7,7 @@ const AuthLayout = () => {
         <div>
             <NavigationBar />
         <div>
-            {user.token ? <Outlet /> : <Navigate to="/signup"/>}
+            {user.token ? <Outlet /> : <Navigate to="/signin"/>}
         </div>
         </div>
     )

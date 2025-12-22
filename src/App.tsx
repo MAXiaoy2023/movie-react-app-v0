@@ -9,6 +9,7 @@ import { WatchlistProvider } from './contexts/WatchlistProvider'
 import AuthLayout from './layout/AuthLayout'
 import DefaultLayout from './layout/DefaultLayout'
 import Movies from './pages/Movies'
+import MovieDetails from './pages/MovieDetails'
 
 
   const App = () => {
@@ -24,9 +25,10 @@ import Movies from './pages/Movies'
               <Route path="/" element={<AuthLayout />}>
                 <Route index element={<Home />} /> 
                 <Route path="/movies" element={<Movies />} />
+                <Route path="/movies/:id" element={<MovieDetails />} />
               </Route>
-              <Route path="/" element={<DefaultLayout />}>
-                <Route index element={<SignUp />} />
+              <Route element={<DefaultLayout />}>
+                <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
               </Route>
             </Routes>

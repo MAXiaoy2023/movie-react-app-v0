@@ -2,6 +2,9 @@ import { useContext, useState } from "react";
 import type { IMovie } from "../interfaces/movie";
 import CounterContext from '../contexts/CounterProvider';
 import WatchlistContext from "../contexts/WatchlistProvider";
+import { BiLike } from "react-icons/bi";
+import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
+import { Link } from "react-router";
 
     interface IMovieComponent{
         movieData : IMovie
@@ -23,25 +26,31 @@ import WatchlistContext from "../contexts/WatchlistProvider";
             setIsChosen(true)
             addMovieToWatchlist(movieData)
         }
+
+        const url = `/movies/${movieData.id}`
         
-    return(
-        <div className="card bg-base-100 w-50 shadow-sm">
-            <figure>
-            <img className="rounded-2xl h-60 p-2 pb-0" 
-                src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-                alt="Une bataille après l'autre" />
-            </figure>
-            <div className="card-body">
-            <h2 className="card-title justify-center">
-                {movieData.title}
-            </h2>
-            <p>{movieData.overview.slice(0, 40)}[...]</p>
-            <div className="card-actions justify-center">
-                <button onClick={() => handleClick()} className="btn bg-indigo-500 text-white ">Like {isChosen? counter : 0}</button>
-                <button onClick={() => chooseMovie()} className="btn bg-indigo-500 text-white">{isChosen ? 'Added to watchlist' : 'Add to watchlist'}</button>
+        return (
+            <>
+            <Link to={url}>
+            <div className="card bg-base-100 w-50 h-full shadow-sm group cursor-pointer">
+                <div>
+                    <img className="rounded-2xl p-2 objectiv-cover  "
+                    src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+                    alt={movieData.title} />
+                </div>
+                <div className="card-body flex items-center justify-end absolute inset-0 pb-0">
+                    <div className="bg-linear-to-b from from-white to-white/80 p-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-full group-hover:translate-y-0">
+                        <h2 className="card-title">{movieData.title}</h2>
+                        <p>{movieData.overview.slice(0, 40)}[...]</p>
+                    </div>
+                    <div className="card-actions">
+                        <button onClick={() => handleClick()} className="btn bg-indigo-500 text-white "><BiLike size={18} /> {isChosen? counter : 0}</button>
+                        <button onClick={() => chooseMovie()} className="btn bg-indigo-500 text-white">{isChosen ? <MdOutlineFavorite size={18}  /> : <MdOutlineFavoriteBorder size={18}  />}</button>
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
+            </Link>
+        </>
     
     )
 

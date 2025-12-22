@@ -1,4 +1,3 @@
-//import bg_image from '../assets/img/bg_image.jpg'
 export function Footer() {
     return(
 
@@ -7,10 +6,5 @@ export function Footer() {
                 <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
             </aside>
         </footer>
-        // <footer>
-        //     {/* <img src={bg_image}/> */}
-        //     <div>   Copyright : 2025
-        //     </div>
-        // </footer>
     )
 }
