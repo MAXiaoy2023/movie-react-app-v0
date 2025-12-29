@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const options = {
-    url: "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
     headers: {
         accept: "application/json",
         Authorization:
@@ -11,9 +10,14 @@ const options = {
 
 export const getMovies = async () => {
     try{
-        const moviesFromAxios = await axios.get(options.url, options)
+        const moviesFromAxios = await axios.get("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", options)
         return moviesFromAxios.data.results;
     } catch (error){
         console.log(error);
     }
 };
+
+export const getMovieById = async (id: number) => {
+    const movieFromAxios = await axios.get(`https://api.themoviedb.org/3/movie/${id}`, options)
+    return movieFromAxios.data;
+}

@@ -54,10 +54,10 @@ const Home = ()=> {
 
         <div className='flex items-center justify-center flex-wrap gap-2.5'>
             {
-            movies && movies.map((movie: IMovie) => (
-                <div>
-                <Movie movieData={movie} />
-                </div>
+                movies && movies.map((movie: IMovie) => (      
+                    <div key={movie.id}>
+                            <Movie movieData={movie} />
+                    </div>
             ))
             }
         </div>

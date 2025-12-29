@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import type { IMovie } from "../interfaces/movie";
-import CounterContext from '../contexts/CounterProvider';
+// import CounterContext from '../contexts/CounterProvider';
 import WatchlistContext from "../contexts/WatchlistProvider";
 import { BiLike } from "react-icons/bi";
 import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
@@ -11,15 +11,15 @@ import { Link } from "react-router";
     }
 
     const Movie = ({movieData }: IMovieComponent) => {
-        const {counter, counterIncrement} = useContext(CounterContext)
+        //const {counter, counterIncrement} = useContext(CounterContext)
         const {addMovieToWatchlist} = useContext(WatchlistContext)
-        // const [counter, setCounter] = useState<number>(0)
+        const [counter, setCounter] = useState<number>(0)
         const [isChosen, setIsChosen] = useState<boolean>(false)
 
         const handleClick = () => {
             setIsChosen(true)
-            counterIncrement()
-            // setCounter(counter+1)
+            //counterIncrement()
+            setCounter(counter + 1)  
         }
 
         const chooseMovie = () => {
@@ -31,10 +31,13 @@ import { Link } from "react-router";
         
         return (
             <>
-            <Link to={url}>
-            <div className="card bg-base-100 w-50 h-full shadow-sm group cursor-pointer">
+            <div className="card bg-base-100 w-50 h-full shadow-sm group cursor-pointer relative">
+                <div className="card-actions absolute z-10 top-2 right-2 flex">
+                    <button onClick={() => chooseMovie()} className=" bg-indigo-500 text-white">{isChosen ? <MdOutlineFavorite size={18}  /> : <MdOutlineFavoriteBorder size={18}  />}</button>
+                </div>
+                <Link to={url}>
                 <div>
-                    <img className="rounded-2xl p-2 objectiv-cover  "
+                    <img className="rounded-2xl p-2 objectiv-cover"
                     src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
                     alt={movieData.title} />
                 </div>
@@ -43,13 +46,12 @@ import { Link } from "react-router";
                         <h2 className="card-title">{movieData.title}</h2>
                         <p>{movieData.overview.slice(0, 40)}[...]</p>
                     </div>
-                    <div className="card-actions">
-                        <button onClick={() => handleClick()} className="btn bg-indigo-500 text-white "><BiLike size={18} /> {isChosen? counter : 0}</button>
-                        <button onClick={() => chooseMovie()} className="btn bg-indigo-500 text-white">{isChosen ? <MdOutlineFavorite size={18}  /> : <MdOutlineFavoriteBorder size={18}  />}</button>
-                    </div>
+                </div>
+                    </Link>
+                <div className="absolute bottom-2 right-2">
+                    <button onClick={() => handleClick()} className=" bg-indigo-500 text-white"><BiLike size={18} /> {isChosen? counter : 0}</button>
                 </div>
             </div>
-            </Link>
         </>
     
     )

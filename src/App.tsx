@@ -3,7 +3,7 @@ import Home from './pages/Home'
 import { Footer } from './components/Footer'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
-import { CounterProvider } from './contexts/CounterProvider'
+// import { CounterProvider } from './contexts/CounterProvider'
 import { WatchlistProvider } from './contexts/WatchlistProvider'
 // import ProtectedPage from './restricted-pages/ProtectedPage'
 import AuthLayout from './layout/AuthLayout'
@@ -16,7 +16,7 @@ import MovieDetails from './pages/MovieDetails'
 
     return (
     <WatchlistProvider>
-      <CounterProvider>
+      {/* <CounterProvider> */}
           <BrowserRouter>
             <Routes>
               {/* <Route element={<ProtectedPage />}>
@@ -34,7 +34,7 @@ import MovieDetails from './pages/MovieDetails'
             </Routes>
             <Footer />
         </BrowserRouter>
-      </CounterProvider>
+      {/* </CounterProvider> */}
     </WatchlistProvider> 
     )
   }
