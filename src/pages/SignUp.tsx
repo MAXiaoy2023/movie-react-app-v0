@@ -18,7 +18,7 @@ const CreateAccount = () => {
     const onSubmit: SubmitHandler<IFormInput> = (data:IFormInput) => {
         if (data.password === data.confirmedPassword){
             console.log(data)
-            navigate('/signin')
+            navigate('/')
         }else{
             setIsPassOk(true)
         }
