@@ -15,7 +15,7 @@ const Home = ()=> {
         setMovies(moviesFromDB)           
     }
         getDataFromDB()
-
+        
         // use l'API Fetch with a Promise
         
         //http request
@@ -51,7 +51,6 @@ const Home = ()=> {
 
     return (
         <>
-
         <div className='flex items-center justify-center flex-wrap gap-2.5'>
             {
                 movies && movies.map((movie: IMovie) => (      

@@ -21,3 +21,12 @@ export const getMovieById = async (id: number) => {
     const movieFromAxios = await axios.get(`https://api.themoviedb.org/3/movie/${id}`, options)
     return movieFromAxios.data;
 }
+
+export const getPopularMovies = async () => {
+    try{
+        const popularMoviesFromAxios = await axios.get("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", options)
+        return popularMoviesFromAxios.data.results;
+    } catch (error){
+        console.log(error);
+    }
+};

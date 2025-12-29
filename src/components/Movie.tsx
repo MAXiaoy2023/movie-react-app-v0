@@ -37,7 +37,7 @@ import { Link } from "react-router";
                 </div>
                 <Link to={url}>
                 <div>
-                    <img className="rounded-2xl p-2 objectiv-cover"
+                    <img className="rounded-2xl p-2 object-cover"
                     src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
                     alt={movieData.title} />
                 </div>
