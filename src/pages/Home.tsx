@@ -4,16 +4,21 @@ import { useEffect, useState } from 'react';
 import Movie from '../components/Movie';
 import type { IMovie } from '../interfaces/movie'
 import { getMovies } from '../services/api/movie';
+import SkeletonList from '../components/SkeletonList';
 
 const Home = ()=> {
     const [movies, setMovies] = useState<IMovie[]>([]);
-
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     useEffect(() => {
         //use axios
-    const getDataFromDB = async() => {
-        const moviesFromDB = await getMovies()
-        setMovies(moviesFromDB)           
-    }
+        const getDataFromDB = async () => {
+            setIsLoading(true)
+            const moviesFromDB = await getMovies()
+            if (moviesFromDB) {
+                setIsLoading(false)
+                setMovies(moviesFromDB) 
+                }
+            }
         getDataFromDB()
         
         // use l'API Fetch with a Promise
@@ -53,11 +58,12 @@ const Home = ()=> {
         <>
         <div className='flex items-center justify-center flex-wrap gap-5 bg-indigo-400 rounded-xl p-5'>
             {
+                isLoading ? (<SkeletonList />) : (
                 movies && movies.map((movie: IMovie) => (      
                     <div key={movie.id}>
                             <Movie movieData={movie} />
                     </div>
-            ))
+            )))
             }
         </div>
         </>

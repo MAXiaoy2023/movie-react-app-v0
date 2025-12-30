@@ -1,10 +1,12 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import YupPassword from 'yup-password'
 YupPassword(Yup) // extend yup
 
 const ConnectAccount = () => {
+    const navigate = useNavigate()
+    
     // Use Yup to define the validation scheme
     const validationSchema = Yup.object({
         email: Yup.string().email('Format d\'email invalide').required('The email is required.'),
@@ -26,7 +28,8 @@ const ConnectAccount = () => {
         validationSchema: validationSchema, // Use the Yup validation scheme
         onSubmit: values => {
         // To do : Manage the form submission logic
-        console.log(values);
+            console.log(values);
+            navigate('/')
         },
     });
     return (
