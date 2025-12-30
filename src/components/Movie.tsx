@@ -43,7 +43,7 @@ import { Link } from "react-router";
                 </div>
                 <div className="card-body flex items-center justify-end absolute inset-0 pb-0">
                     <div className="bg-linear-to-b from from-white to-white/80 p-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-full group-hover:translate-y-0">
-                        <h2 className="card-title">{movieData.title}</h2>
+                        <h3 className="card-title">{movieData.title}</h3>
                         <p>{movieData.overview.slice(0, 40)}[...]</p>
                     </div>
                 </div>

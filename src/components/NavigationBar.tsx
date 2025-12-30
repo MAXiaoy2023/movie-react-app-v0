@@ -8,7 +8,7 @@ import { Link } from'react-router'
 export function NavigationBar() {
     return (
         <>
-            <div className="navbar bg-base-300 shadow-sm rounded-xl mb-5">
+            <div className="navbar mb-5">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <div role="button" className="btn btn-ghost md:hidden">
@@ -27,10 +27,12 @@ export function NavigationBar() {
                         ))}
                     </ul>
                     </div>
+                    <Link to='/'>
                     <div className="btn btn-ghost">
                         <img className='w-8 md:w-15 rounded-2xl pr-0.5' src={logo_movie} alt="logo" />
                         <h1 className=' bg-linear-to-r from-blue-400 to-indigo-500 bg-clip-text font-extrabold text-transparent'> Hi</h1>
                     </div>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden md:flex">
                     <ul className="menu menu-horizontal">

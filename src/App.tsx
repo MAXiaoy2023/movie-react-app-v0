@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Home from './pages/Home'
-import { Footer } from './components/Footer'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 // import { CounterProvider } from './contexts/CounterProvider'
@@ -10,6 +9,7 @@ import AuthLayout from './layout/AuthLayout'
 import DefaultLayout from './layout/DefaultLayout'
 import Movies from './pages/Movies'
 import MovieDetails from './pages/MovieDetails'
+import NotFoundPage from './pages/NotFoundPage'
 
 
   const App = () => {
@@ -31,8 +31,8 @@ import MovieDetails from './pages/MovieDetails'
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
               </Route>
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
-            <Footer />
         </BrowserRouter>
       {/* </CounterProvider> */}
     </WatchlistProvider> 

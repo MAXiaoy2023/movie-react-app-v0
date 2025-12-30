@@ -63,7 +63,7 @@ const Movies = () => {
 
     return (
     <>
-        <div className="bg-base-300 rounded-xl pt-5">
+        <div className="bg-indigo-400 rounded-xl pt-5">
             <div className="ml-6">
             <h2>The top rated movies</h2>
             </div>
@@ -78,7 +78,7 @@ const Movies = () => {
             </div>   
             </div>
             
-        <div className="bg-base-300 rounded-xl pt-5">
+        <div className="bg-indigo-400 rounded-xl pt-5">
             <div className="ml-6">
             <h2>The popular movies</h2>
             </div>

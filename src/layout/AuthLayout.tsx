@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router";
 import { NavigationBar } from "../components/NavigationBar";
+import { Footer } from "../components/Footer";
 
 const AuthLayout = () => {
     const user  = {token: true}
@@ -9,6 +10,7 @@ const AuthLayout = () => {
         <div>
             {user.token ? <Outlet /> : <Navigate to="/signin"/>}
         </div>
+            <Footer />
         </div>
     )
 

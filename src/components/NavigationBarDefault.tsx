@@ -7,7 +7,7 @@ import { Link } from'react-router'
 export function NavigationBarDefault() {
     return (
         <>
-            <div className="navbar bg-base-300 shadow-sm rounded-xl">
+            <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <div role="button" className="btn btn-ghost md:hidden">
